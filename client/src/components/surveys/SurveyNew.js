@@ -23,6 +23,9 @@ class SurveyNew extends Component {
     render() {
         return (
             <div>
+                <div className="section">
+                    <h5>Create Campaign</h5>
+                </div>
                 {this.renderContent()}
             </div>
         );

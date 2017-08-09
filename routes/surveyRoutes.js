@@ -20,6 +20,20 @@ module.exports = app => {
         res.send('Thanks for voting!');
     });
 
+    app.delete('/api/surveys/:surveyid', requireLogin, async (req, res) => {
+        console.log(req.params.surveyid);
+        
+        const survey = await Survey.findByIdAndRemove(req.params.surveyid, function (err, survey) {  
+        // We'll create a simple object to send back with a message and the id of the document that was removed
+        // You can really do this however you want, though.
+        console.log(err);
+        var response = {
+            message: "Todo successfully deleted",
+            id: req.params.surveyid
+        };
+        res.send(response);
+    })});
+
     app.post('/api/surveys/webhooks', (req, res) => {
 
         const p = new Path('/api/surveys/:surveyId/:choice');

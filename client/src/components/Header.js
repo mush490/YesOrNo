@@ -24,9 +24,9 @@ class Header extends Component {
     render(){
         return (
             <nav>
-                <div className="nav-wrapper">
-                    <Link to={ this.props.auth ? '/surveys' : '/'} className="left brand-logo">
-                        Emaily
+                <div className="nav-wrapper blue darken-3">
+                    <Link to={ this.props.auth ? '/surveys' : '/'} className="left brand-logo" style={{ margin: '0 10px' }}>
+                        <i className="material-icons">send</i>YesOrNo?
                     </Link>
 
                     <ul className="right">

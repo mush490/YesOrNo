@@ -31,7 +31,6 @@ const SurveyFormReview = (props) => {
     );
 };
 function mapStateToProps(state){
-    console.log(state.form.surveyForm.values);
     return { formValues: state.form.surveyForm.values};
 }
 export default connect(mapStateToProps,actions)(withRouter(SurveyFormReview));
