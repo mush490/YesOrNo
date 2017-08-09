@@ -13,6 +13,7 @@ module.exports = app => {
         const surveys = await Survey.find({ _user: req.user.id })
             .select({ recipients: false
             });
+        console.log(req);
         res.send(surveys);
     });
 

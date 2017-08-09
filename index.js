@@ -4,16 +4,19 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
+const ipfilter = require('express-ipfilter').IpFilter;
 
 require('./models/User.js');
 require('./models/Survey.js');
 require('./services/passport');
-
+ 
+// Blacklist the following IPs 
+var ips = ['127.0.0.1']; 
 
 mongoose.connect(keys.mongoURI);
 
 const app = express();
-
+//app.use(ipfilter(ips));
 app.use(bodyParser.json());
 app.use(
     cookieSession({

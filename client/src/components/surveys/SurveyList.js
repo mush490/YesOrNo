@@ -38,7 +38,7 @@ class SurveyList extends Component {
                 return (
                     <div key={survey._id} className="card grey lighten-4 hoverable">
                         <div className="card-content">
-                            <p className="right"><i className="small material-icons" style={{cursor: 'pointer'}} onClick={() => this.deleteSurvey(survey._id)}>delete</i></p>
+                            <p className="right"><i className="small material-icons" style={{cursor: 'pointer'}} onClick={() => this.editSurvey(survey._id)}>edit</i><i className="small material-icons" style={{cursor: 'pointer'}} onClick={() => this.deleteSurvey(survey._id)}>delete</i></p>
                             
                             <span className="card-title">{survey.title}</span>
                             <p>{survey.body}</p>
