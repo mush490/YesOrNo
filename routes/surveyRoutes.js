@@ -13,7 +13,6 @@ module.exports = app => {
         const surveys = await Survey.find({ _user: req.user.id })
             .select({ recipients: false
             });
-        console.log(req);
         res.send(surveys);
     });
 
@@ -22,7 +21,6 @@ module.exports = app => {
     });
 
     app.delete('/api/surveys/:surveyid', requireLogin, async (req, res) => {
-        console.log(req.params.surveyid);
         
         const survey = await Survey.findByIdAndRemove(req.params.surveyid, function (err, survey) {  
         // We'll create a simple object to send back with a message and the id of the document that was removed
@@ -61,7 +59,6 @@ module.exports = app => {
             })
             .value();
 
-        console.log(events);
         res.send({});
     });
 

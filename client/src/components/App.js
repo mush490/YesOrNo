@@ -9,11 +9,16 @@ import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
 
 class App extends Component {
+
     componentDidMount() {
         this.props.fetchUser();
     }
 
     render(){
+        const Dash = () => {
+            return <Dashboard user={this.props.user} />
+        };
+
         return (
             <div className="container">
                 <BrowserRouter>
@@ -27,7 +32,7 @@ class App extends Component {
                                 <Landing/>
                             )
                             )}/>
-                        <Route exact path="/surveys" component={Dashboard} />
+                        <Route exact path="/surveys" component={Dash} />
                         <Route exact path="/surveys/new" component={SurveyNew} />
                     </div>
                 </BrowserRouter>
