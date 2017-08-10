@@ -19,7 +19,14 @@ class App extends Component {
                 <BrowserRouter>
                     <div className="container">
                         <Header />
-                        <Route exact path="/" component={Landing} />
+                        {/* <Route exact path="/" component={Landing} /> */}
+                        <Route exact path="/" render={() => (
+                            this.props.user ? (
+                                <Redirect to="/surveys"/>
+                            ) : (
+                                <Landing/>
+                            )
+                            )}/>
                         <Route exact path="/surveys" component={Dashboard} />
                         <Route exact path="/surveys/new" component={SurveyNew} />
                     </div>
